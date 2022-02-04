@@ -67,7 +67,10 @@ const Signup = () => {
       body: JSON.stringify(body),
     };
 
-    fetch(`/auth/signup`, requestOptions)
+    fetch(
+      `https://plataforma-test-app-api.herokuapp.com/auth/signup`,
+      requestOptions,
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

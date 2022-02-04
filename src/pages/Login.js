@@ -24,30 +24,31 @@ const Login = () => {
   const history = useHistory();
 
   const loginUser = (data) => {
-
     console.log(data);
 
-    const requestOptions={
-      method:"POST",
-      headers:{
-          'content-type':'application/json'
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
       },
-      body:JSON.stringify(data)
-    }
+      body: JSON.stringify(data),
+    };
 
-    fetch('/auth/login', requestOptions)
-    .then(res => res.json())
-    .then(data => {
-      //console.log(data.access_token)
-      //console.log(data)
-      if (!data.message) {
-        login(data.access_token);
-        history.push('/mentor')
-      } 
-      else {
-        alert('Email ou senha invalida!')
-      }
-    })
+    fetch(
+      'https://plataforma-test-app-api.herokuapp.com/auth/login',
+      requestOptions,
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data.access_token)
+        //console.log(data)
+        if (!data.message) {
+          login(data.access_token);
+          history.push('/mentor');
+        } else {
+          alert('Email ou senha invalida!');
+        }
+      });
   };
 
   return (
