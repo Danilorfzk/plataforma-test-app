@@ -74,7 +74,8 @@ const Signup = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        history.push(`/${body.userRole}`);
+        //history.push(`/${body.userRole}`);
+        history.push('/');
       })
       .catch((err) => console.log(err));
 
